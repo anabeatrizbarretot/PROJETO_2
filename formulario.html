@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Exemplo 1 - Exportar TXT</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário com salvamento em txt</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Formulário de Valores</h1>
   <form id="formulario">
-    <label>Valor 1:</label><input type="text" id="valor1"><br>
-    <label>Valor 2:</label><input type="text" id="valor2"><br>
-    <label>Valor 3:</label><input type="text" id="valor3"><br>
-    <label>Valor 4:</label><input type="text" id="valor4"><br>
-    <label>Valor 5:</label><input type="text" id="valor5"><br>
+    <label for="valor1">Valor 1:</label>
+    <input type="text" id="valor1" required><br>
+
+    <label for="valor2">Valor 2:</label>
+    <input type="text" id="valor2" required><br>
+
+    <label for="valor3">Valor 3:</label>
+    <input type="text" id="valor3" required><br>
+
+    <label for="valor4">Valor 4:</label>
+    <input type="text" id="valor4" required><br>
+
+    <label for="valor5">Valor 5:</label>
+    <input type="text" id="valor5" required><br>
+
     <button type="submit">Salvar em TXT</button>
   </form>
 
-  <script src="exemplo1.js"></script>
+  <script src="script2.js"></script>
 </body>
 </html>

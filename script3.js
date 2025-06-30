@@ -7,6 +7,7 @@ function atualizarLista() {
 function adicionarFruta() {
   const input = document.getElementById('frutaInput');
   const valor = input.value.trim();
+
   if (valor) {
     frutas.push(valor);
     input.value = "";
@@ -16,46 +17,56 @@ function adicionarFruta() {
 
 function metodo(acao) {
   if (acao === 'push') {
-    const fruta = prompt("Fruta para adicionar:");
+    const fruta = prompt("Digite uma fruta para adicionar no final:");
     if (fruta) frutas.push(fruta);
-  } else if (acao === 'pop') frutas.pop();
-  else if (acao === 'shift') frutas.shift();
-  else if (acao === 'unshift') {
-    const fruta = prompt("Fruta para início:");
+  } else if (acao === 'pop') {
+    frutas.pop();
+  } else if (acao === 'shift') {
+    frutas.shift();
+  } else if (acao === 'unshift') {
+    const fruta = prompt("Digite uma fruta para adicionar no início:");
     if (fruta) frutas.unshift(fruta);
   }
   atualizarLista();
 }
 
 function verificarBanana() {
-  const res = frutas.includes('banana') ? "🍌 Banana está no array!" : "🚫 Banana NÃO está no array.";
-  document.getElementById('saida').textContent = res;
+  const resultado = frutas.includes('banana')
+    ? "🍌 Banana está no array!"
+    : "🚫 Banana NÃO está no array.";
+  document.getElementById('saida').textContent = resultado;
 }
 
 function mostrarIndex(fruta) {
-  const i = frutas.indexOf(fruta);
-  document.getElementById('saida').textContent = i !== -1
-    ? `A fruta '${fruta}' está na posição ${i}.` : `'${fruta}' não foi encontrada.`;
+  const index = frutas.indexOf(fruta);
+  const resultado = index !== -1
+    ? `A fruta '${fruta}' está na posição ${index}.`
+    : `'${fruta}' não foi encontrada.`;
+  document.getElementById('saida').textContent = resultado;
 }
 
 function mostrarJoin() {
-  document.getElementById('saida').textContent = frutas.join(', ');
+  const resultado = "join(', '): " + frutas.join(', ');
+  document.getElementById('saida').textContent = resultado;
 }
 
 function mostrarSlice() {
-  document.getElementById('saida').textContent = JSON.stringify(frutas.slice(1, 3));
+  const fatiado = frutas.slice(1, 3);
+  document.getElementById('saida').textContent = "slice(1, 3): " + JSON.stringify(fatiado);
 }
 
 function fazerSplice() {
   frutas.splice(1, 1);
   atualizarLista();
-  document.getElementById('saida').textContent = "Removido item na posição 1.";
+  document.getElementById('saida').textContent = "splice(1, 1) aplicado.";
 }
 
 function mapMaiusculas() {
-  document.getElementById('saida').textContent = JSON.stringify(frutas.map(f => f.toUpperCase()));
+  const maiusculas = frutas.map(f => f.toUpperCase());
+  document.getElementById('saida').textContent = "map (toUpperCase): " + JSON.stringify(maiusculas);
 }
 
 function filtrarGrandes() {
-  document.getElementById('saida').textContent = JSON.stringify(frutas.filter(f => f.length > 4));
+  const grandes = frutas.filter(f => f.length > 4);
+  document.getElementById('saida').textContent = "filter (length > 4): " + JSON.stringify(grandes);
 }
